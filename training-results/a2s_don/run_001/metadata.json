@@ -1,0 +1,29 @@
+{
+    "activation": "tanh",
+    "learning_rate": 0.001,
+    "learning_rate_type": "exponential_decay",
+    "epochs": 500,
+    "batch_size": 32,
+    "weight_init": "xavier",
+    "optimizer": "adam",
+    "metrics": [
+        "l2 relative error"
+    ],
+    "display_every": 1,
+    "layers_branch": [
+        3,
+        64,
+        64,
+        64,
+        192
+    ],
+    "layers_trunk": [
+        1,
+        64,
+        64,
+        64,
+        192
+    ],
+    "train_samples": 640000,
+    "valid_samples": 160000
+}

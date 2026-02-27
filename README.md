@@ -18,13 +18,20 @@ In progress
 ---
 
 ## Features
-In progress
 
 
 
 ---
 
 ## File Structure
-In progress
+* a2s: Contains everything that is necessary to understand how the deep operator network was trained.
+* training-results: Pre-trained deep operator network based on this [dataset](https://doi.org/10.5281/zenodo.18802371).
+* cc_clik: CLIK algorithm for constant curvature segment (toy example).
+* cc_kinematics: Kinematics and Jacobian for constant curvature segment.
+* neural_clik: Neural CLIK algorithm using the learned neural operator model.
+* neural_kinematics: ``Kinematics'' and Jacobian based on the neural operator model.
+* tasks: Different task formulatios.
+* utils: Misc functions used in the code.
+
 
 ---
