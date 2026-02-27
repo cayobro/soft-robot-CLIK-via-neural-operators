@@ -33,5 +33,6 @@ In progress
 * tasks: Different task formulatios.
 * utils: Misc functions used in the code.
 
+Please note that the respective paths need to be adapted in the `load_model` and `load_shape_library` functions in `utils.py`
 
 ---
