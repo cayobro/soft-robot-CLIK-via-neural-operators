@@ -9,21 +9,6 @@ from cc_kinematics import cc_kinematics_pi, cc_kinematics_jacobian
 columnwidth = 6
 textwidth = 8
 
-def cc_tip_point(q):
-    """
-    Choose a target point that is actually feasible for the segment.
-    q: scalar tensor (curvature), q != 0
-    returns: tensor([x, y]) tip position
-    """
-    R = 1.0 / torch.abs(q)            # radius
-    cy = torch.sign(q) * R            # circle center y-coordinate
-
-    theta = q                         # since L = 1, theta = q * L = q
-    x = R * torch.sin(theta)
-    y = cy - R * torch.cos(theta)
-
-    return torch.stack([x, y])
-
 
 def clik(t, task, q, s, target_point):
     shape, a = cc_kinematics_pi(q, s, L)

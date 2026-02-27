@@ -73,6 +73,21 @@ def split_and_visualize_jacobian(jacobian, visualize=False):
         plt.show()
     return jac_dict
 
+def cc_tip_point(q):
+    """
+    Choose a target point that is actually feasible for the segment.
+    q: scalar tensor (curvature), q != 0
+    returns: tensor([x, y]) tip position
+    """
+    R = 1.0 / torch.abs(q)            # radius
+    cy = torch.sign(q) * R            # circle center y-coordinate
+
+    theta = q                         # since L = 1, theta = q * L = q
+    x = R * torch.sin(theta)
+    y = cy - R * torch.cos(theta)
+
+    return torch.stack([x, y])
+
 def pick_shape(idx, orientation=False):
     shape_lib = dict()
     shape_lib['r'], shape_lib['gamma'], shape_lib['z'] = load_shape_library(orientation=orientation)
